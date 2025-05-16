@@ -24,3 +24,25 @@ def create_table(cursor, table_name:str, columns: dict) -> None:
         );
         """
     )
+
+def create_entry(cursor, table_name:str, entry: dict) -> None:
+    """
+    Inserts an entry into a specified table in the database.
+    Args:
+        cursor: The database cursor to execute the SQL command
+        table_name (str): The name of the table to insert the entry into
+        entry (dict): A dictionary where keys are column names and values are their corresponding values to be inserted.
+    Raises:
+        ValueError: If the entry dictionary is empty
+    """
+    if not entry:
+        raise ValueError("Entry dictionary cannot be empty")
+
+    columns = ", ".join(entry.keys())
+    values = ", ".join([f"'{value}'" for value in entry.values()])
+    
+    cursor.execute(
+        f"""
+        INSERT INTO {table_name} ({columns}) VALUES ({values});
+        """
+    )
