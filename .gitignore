@@ -1,5 +1,8 @@
 # Python
 /venv
 
+# Postgres
+/postgres_data
+
 # Boilerplate Files
 *boiler*
