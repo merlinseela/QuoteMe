@@ -4,5 +4,8 @@
 # Postgres
 /postgres_data
 
+# Environment Variables
+.env
+
 # Boilerplate Files
 *boiler*
